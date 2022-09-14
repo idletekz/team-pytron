@@ -3,7 +3,7 @@ from levelup.controller import GameController, Direction
 
 
 class GameUI:
-
+    # Yay Changes
     game: GameController
 
     def __init__(self):
