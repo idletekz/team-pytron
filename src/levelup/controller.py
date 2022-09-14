@@ -16,7 +16,10 @@ class Direction(Enum):
 class GameStatus:
     running: bool = False
     character: Character = Character(DEFAULT_CHARACTER_NAME)
+    current_position: tuple = (-1,-1)
 
+    def set_character_position(self, xycoordinates: tuple) -> None:
+        print(f"Set character position state for testing")
 
 class GameController:
     status: GameStatus
