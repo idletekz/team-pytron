@@ -18,9 +18,6 @@ class GameStatus:
     character: Character = Character(DEFAULT_CHARACTER_NAME)
     current_position: tuple = (-1,-1)
 
-    def set_character_position(self, xycoordinates: tuple) -> None:
-        print(f"Set character position state for testing")
-
 class GameController:
     status: GameStatus
 
@@ -34,3 +31,6 @@ class GameController:
 
     def move(self, direction: Direction) -> None:
         print(f"Moved {direction.name}")
+
+    def set_character_position(self, xycoordinates: tuple) -> None:
+        print(f"Set character position state for testing")
