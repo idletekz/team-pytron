@@ -20,7 +20,7 @@ class GameStatus:
 
 class GameController:
     status: GameStatus
-
+    
     def __init__(self):
         self.status = GameStatus()
 
@@ -31,3 +31,18 @@ class GameController:
 
     def move(self, direction: Direction) -> None:
         print(f"Moved {direction.name}")
+
+    def startGame() -> None:
+        return null
+
+    def getStatus() -> GameStatus:
+        return GameStatus
+
+    def setCharacterPositionY() -> int:
+        return y
+
+    def setCharacterPositionX() -> int:
+        return x
+
+    def getTotalPositions() -> int:
+        return int
