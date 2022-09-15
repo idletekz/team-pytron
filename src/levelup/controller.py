@@ -1,15 +1,8 @@
-from enum import Enum
+from levelup.direction import Direction
 from dataclasses import dataclass
 from levelup.character import Character
-
+from levelup.direction import Direction
 DEFAULT_CHARACTER_NAME = "Character"
-
-
-class Direction(Enum):
-    NORTH = "n"
-    SOUTH = "s"
-    EAST = "e"
-    WEST = "w"
 
 
 @dataclass
@@ -31,6 +24,7 @@ class GameController:
 
     def move(self, direction: Direction) -> None:
         print(f"Moved {direction.name}")
+        
 
     def set_character_position(self, xycoordinates: tuple) -> None:
         print(f"Set character position state for testing")
