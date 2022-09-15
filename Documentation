@@ -1,0 +1,12 @@
+Specifications by Example 
+Name     CurrentX CurrentY Direction CurrentX CurrentY
+Bobby    0       9        W         0        9
+Bobli    0       9        E         0        9
+Bobu     0       9        N         0        9
+Bobina   0       9        S         0        9
+Wildcard 9       0        W         9        0
+Jaxli    9       0        E         9        1
+Rick     9       0        N         8        0
+Mack     9       0        S         9        0
+
+
