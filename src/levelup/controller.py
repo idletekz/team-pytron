@@ -24,23 +24,18 @@ class GameController:
 
     def move(self, direction: Direction) -> None:
         print(f"Moved {direction.name}")
-        
+        self.status.character.move(direction)
+        print(self.status.character.map.positions)
 
     def set_character_position(self, xycoordinates: tuple) -> None:
         print(f"Set character position state for testing")
-        self.status.current_position = xycoordinates
+        self.status.character.position = xycoordinates
 
     def start_game() -> None:
         return null
 
     def get_status() -> GameStatus:
         return GameStatus
-
-    def set_character_positionY() -> int:
-        return y
-
-    def set_character_positionX() -> int:
-        return x
 
     def get_total_positions() -> int:
         return int
