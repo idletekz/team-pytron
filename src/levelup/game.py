@@ -92,10 +92,13 @@ class GameUI:
         print("\033[4mC\033[0mreate character")
         print("\033[4mP\033[0mlay")
         print("\033[4mQ\033[0muit")
-        print("\n\n")        
+        print("\n\n")     
+
+    def quit(self):
+        exit()   
 
 commands = {
-    'q': 'quit game',
+    'q': GameUI.quit,
     'c': GameUI.create_character,
     'p': GameUI.play
 }
