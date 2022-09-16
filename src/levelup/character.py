@@ -21,7 +21,7 @@ class Character:
         if self.map.isValid(new_position):
             self.map.update(self.position, new_position)
             self.set_position(new_position)
-            self.move_count += self.move_count
+            self.move_count = self.move_count + 1
 
 
         
