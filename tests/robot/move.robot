@@ -3,22 +3,23 @@ Documentation   I want to move my character. If they attempt to move past a boun
 Test Template   Move character
 Library         MoveLibrary.py
 
-*** Test Cases ***              StartingX   StartingY   Direction   EndingX EndingY MoveCount
-Move west to middle of boardpoy    0           9           WEST        0       8       2
-Move east out of bound          0           9           EAST        0       9       3
-Move north out of bound         0           9           NORTH       0       9       4
-Move south to middle of board   0           9           SOUTH       1       9       5
-Move west out of bound          9           0           WEST        9       0       6
-Move east to middle of board    9           0           EAST        9       1       7
-Move north to middle of board   9           0           NORTH       8       0       8
-Move south out of bound         9           0           SOUTH       9       0       9
+*** Test Cases ***              StartingX   StartingY   Direction   StartMoveCount EndingX EndingY EndMoveCount
+Move west to middle of board    0           9           WEST        1              0       8       2
+Move east out of bound          0           9           EAST        17             0       9       18
+Move north out of bound         0           9           NORTH       13             0       9       14
+Move south to middle of board   0           9           SOUTH       11             1       9       12
+Move west out of bound          9           0           WEST        33             9       0       34
+Move east to middle of board    9           0           EAST        77             9       1       78
+Move north to middle of board   9           0           NORTH       81             8       0       82
+Move south out of bound         9           0           SOUTH       23             9       0       24
 
 *** Keywords ***
 Move character
-    [Arguments]     ${startingX}       ${startingY}     ${direction}    ${endingX}      ${endingY}    ${move_count}
+    [Arguments]     ${startingX}       ${startingY}     ${direction}    ${start_move_count}    ${endingX}      ${endingY}    ${end_move_count}
     Initialize character xposition with     ${startingX}
     Initialize character yposition with    ${startingY}
+    Initialize character move count with     ${start_move_count}
     Move in direction   ${direction}
     Character xposition should be   ${endingX}
     Character yposition should be   ${endingY}
-    Character Move Count should be   ${move_count}
+    Character Move Count should be   ${end_move_count}

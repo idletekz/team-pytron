@@ -11,8 +11,11 @@ class MoveLibrary:
     def initialize_character_yposition_with(self, y_position):
         self.start_y = y_position
 
-    def move_in_direction(self, direction):
+    def initialize_character_move_count_with(self, move_count):
         self.controller = GameController()
+        self.controller.status.character.move_count = int(move_count)
+
+    def move_in_direction(self, direction):
         self.controller.set_character_position(self.start_x, self.start_y)
         self.controller.move(Direction[direction])
 
