@@ -1,4 +1,5 @@
 from typing import Callable
+from prettytable import PrettyTable
 from levelup.controller import GameController, Direction
 
 
@@ -95,11 +96,11 @@ class GameUI:
                 self.game.move(Direction(response))
 
     def help(self):
-        print("\n\n")
+        print("\n")
         print("\033[4mC\033[0mreate character")
         print("\033[4mP\033[0mlay")
         print("\033[4mQ\033[0muit")
-        print("\n\n")     
+        print("")     
 
     def quit(self):
         self.status()
@@ -109,7 +110,24 @@ class GameUI:
 
     def status(self):
         status = self.game.get_status()
-        print(status)
+        name = status["name"]
+        count = status["move_count"]
+        game_map = status["map"]
+        current_position = status["current_position"]
+        pretty_map = PrettyTable(header=False, vrules=2, hrules=0)
+        for row in game_map:
+            pretty_map.add_row(row)
+        print(r"""  _________                                          
+ /   _____/__ __  _____   _____ _____ _______ ___.__.
+ \_____  \|  |  \/     \ /     \\__  \\_  __ <   |  |
+ /        \  |  /  Y Y  \  Y Y  \/ __ \|  | \/\___  |
+/_______  /____/|__|_|  /__|_|  (____  /__|   / ____|
+        \/            \/      \/     \/       \/     """)
+        print(pretty_map)
+        print(f"    Name:               {name}")
+        print(f"    Move Count:         {count}")
+        print(f"    Current Position:   {current_position}")
+        input("    Press enter to continue...")
 
 commands = {
     'q': GameUI.exit_game,
