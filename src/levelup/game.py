@@ -87,9 +87,6 @@ class GameUI:
             )
             self.game.move(Direction(response))
 
-    def underline(s):
-        cprint('{:s}'.format('\u0332'.join(s)))
-
     def help(self):
         print("\n\n")
         print("\033[4mC\033[0mreate character")
