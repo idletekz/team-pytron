@@ -38,8 +38,46 @@ class GameUI:
         print("     You were an adventurer in this land.")
         print("     During a quest to slay the most metal of dragons, you awake with no memory of that life.")
         print("     Oh...  and you've lost your pants!  You should find them.")
-        character = self.prompt("Enter character name", lambda x: len(x) > 0)
+
+        while True:
+            self.help()
+            command = self.prompt("Enter Command", lambda x: len(x) > 0)
+            if command in commands.keys():
+                print(commands[command])
+                commands[command](self)
+
+    def create_character(self):
+        warrior = r'''
+                          ,dM
+                         dMMP
+                        dMMM'
+                        \MM/
+                        dMMm.
+                       dMMP'_\---.
+                      _| _  p ;88;`.
+                    ,db; p >  ;8P|  `.
+                   (``T8b,__,'dP |   |
+                   |   `Y8b..dP  ;_  |
+                   |    |`T88P_ /  `\;
+                   :_.-~|d8P'`Y/    /
+                    \_   TP    ;   7`\
+         ,,__        >   `._  /'  /   `\_
+         `._ """"~~~~------|`\;' ;     ,'
+            """~~~-----~~~'\__[|;' _.-'  `\
+                    ;--..._     .-'-._     ;
+                   /      /`~~"'   ,'`\_ ,/
+                  ;_    /'        /    ,/
+                  | `~-l         ;    /
+                  `\    ;       /\.._|
+                    \    \      \     \
+                    /`---';      `----'
+                   (     /            
+        '''
+        print(warrior)
+        character = self.prompt("Character Name", lambda x: len(x) > 0)
         self.game.create_character(character)
+
+    def play(self):
         valid_directions = [x.value for x in Direction]
         while True:
             response = self.prompt(
@@ -47,3 +85,16 @@ class GameUI:
                 lambda x: x in valid_directions,
             )
             self.game.move(Direction(response))
+
+    def help(self):
+        print("\n\n")
+        print(f"Create Character: {self.game.status.character.name}") 
+        print("Play")
+        print("Quit")
+        print("\n\n")        
+
+commands = {
+    'q': 'quit game',
+    'c': GameUI.create_character,
+    'p': GameUI.play
+}
