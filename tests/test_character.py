@@ -1,5 +1,6 @@
 from levelup.character import Character
 from levelup.game_map import GameMap
+from mock_game_map import MockGameMap
 from levelup.controller import Direction
 import pytest
 
@@ -44,9 +45,10 @@ def test_move_count_boundary(character):
 def test_move(character):
     direction = Direction.NORTH
     current_pos = (5,5)
-    map = GameMap()
+    #ERINs note: This now tests in isolatin. It just tests that move called the right method. Let the map decide how that works.
+    map = MockGameMap()
     character.set_position(current_pos)
     character.set_map(map)
     character.move(direction)
-    want = (4,5)
+    want = map.RETURN_THIS_POSITION_WHEN_CALLED
     assert character.position == want
