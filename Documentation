@@ -9,4 +9,32 @@ Jaxli    9       0        E         9        1
 Rick     9       0        N         8        0
 Mack     9       0        S         9        0
 
+Acceptance Test 
+*** Test Cases ***              StartingX   StartingY   Direction   EndingX EndingY MoveCount
+Move west to middle of board    0           9           WEST        0       8       2
+Move east out of bound          0           9           EAST        0       9       2
+Move north out of bound         0           9           NORTH       0       9       2
+Move south to middle of board   0           9           SOUTH       1       9       2
+Move west out of bound          9           0           WEST        9       0       2
+Move east to middle of board    9           0           EAST        9       1       2
+Move north to middle of board   9           0           NORTH       8       0       2
+Move south out of bound         9           0           SOUTH       9       0       2
+Move east out of bound          0           9           EAST        0       9       3
+Move north out of bound         0           9           NORTH       0       9       4
+Move south to middle of board   0           9           SOUTH       1       9       5
+Move west out of bound          9           0           WEST        9       0       6
+Move east to middle of board    9           0           EAST        9       1       7
+Move north to middle of board   9           0           NORTH       8       0       8
+Move south out of bound         9           0           SOUTH       9       0       9
 
+Feature 
+
+Amnesia by Level up Games - Team : PYTRON
+
+Amnesia is a text-based game providing a vintage retro experience for players of all ages. It involves simplistic character building and creative story-telling to ignite the imagination of any gaming enthusiast. Below are the summary of features:
+
+Character: This feature allows the player to name a character before playing the game. One can rename the character prior to launching the game. 
+
+Map: This feature provides a 10x10 grid that allows the character to move one position using four standard directions (north, south, east or west) per movement.
+
+Game_Status: This feature provides the player’s end-of-game status capturing the character name, total movement count and the grid position. It also displays the map which displays the historical movement.
