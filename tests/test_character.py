@@ -19,6 +19,28 @@ def test_has_a_map(character):
     character.set_map(map)
     assert character.map == want
 
+def test_move_count_middle(character):
+    direction = Direction.NORTH
+    current_pos = (5,5)
+    map = GameMap()
+    character.set_position(current_pos)
+    character.set_map(map)
+    character.move(direction)
+    want = 2
+    got = character.move_count
+    assert got == want
+
+def test_move_count_boundary(character):
+    direction = Direction.NORTH
+    current_pos = (0,0)
+    map = GameMap()
+    character.set_position(current_pos)
+    character.set_map(map)
+    character.move(direction)
+    want = 2
+    got = character.move_count
+    assert got == want
+
 def test_move(character):
     direction = Direction.NORTH
     current_pos = (5,5)

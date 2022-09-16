@@ -8,6 +8,7 @@ class Character:
         self.name = name
         self.position = (0,0)
         self.map = map
+        self.move_count = 1
 
     def set_position(self, position):
         self.position = position
@@ -20,4 +21,7 @@ class Character:
         if self.map.isValid(new_position):
             self.map.update(self.position, new_position)
             self.set_position(new_position)
+            self.move_count += self.move_count
+
+
         
