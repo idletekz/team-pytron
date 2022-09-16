@@ -25,6 +25,7 @@ class GameController:
 
     def move(self, direction: Direction) -> None:
         self.status.character.move(direction)
+        #TODO:  Move prettifying grid into UI.  Add getMap method that controller can return to gameui.
         pretty_map = PrettyTable(header=False, vrules=2, hrules=0)
         for row in self.status.character.map.positions:
             pretty_map.add_row(row)

@@ -35,15 +35,15 @@ class GameUI:
            | |_) | (_| | | | | |_\__ \                                      
            | .__/ \__,_|_| |_|\__|___/                                      
            |_|                                                             """)
-        print("You were an adventurer in this land.")
-        print("During a quest to slay the most metal of dragons, you awake with no memory of that life.")
-        print("Oh...  and you've lost your pants!  You should find them.")
+        print("     You were an adventurer in this land.")
+        print("     During a quest to slay the most metal of dragons, you awake with no memory of that life.")
+        print("     Oh...  and you've lost your pants!  You should find them.")
         character = self.prompt("Enter character name", lambda x: len(x) > 0)
         self.game.create_character(character)
         valid_directions = [x.value for x in Direction]
         while True:
             response = self.prompt(
-                f"Where should our pantsless hero go! {valid_directions}\n(or ctrl+c to quit)",
+                f">>>>>Where should our pantsless hero go! {valid_directions}\n(or ctrl+c to quit)",
                 lambda x: x in valid_directions,
             )
             self.game.move(Direction(response))
