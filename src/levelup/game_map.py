@@ -13,16 +13,16 @@ class GameMap:
     def calculate_position(self, current_pos, direction):
         x = current_pos[0]
         y = current_pos[1]
-        match direction:
-            #Don't forget, X is each row, Y is each item in each row.
-            case Direction.NORTH:
-                tmp_position = (x - 1, y)
-            case Direction.SOUTH:
-                tmp_position = (x + 1, y)
-            case Direction.EAST:
-                tmp_position = (x, y + 1)
-            case Direction.WEST:
-                tmp_position = (x, y - 1)
+        
+        #Don't forget, X is each row, Y is each item in each row.
+        if direction == Direction.NORTH:
+            tmp_position = (x - 1, y)
+        elif direction == Direction.SOUTH:
+            tmp_position = (x + 1, y)
+        elif direction == Direction.EAST:
+            tmp_position = (x, y + 1)
+        elif direction == Direction.WEST:
+            tmp_position = (x, y - 1)
 
         if self.isValid(tmp_position):
             return tmp_position
