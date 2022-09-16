@@ -39,8 +39,12 @@ class GameController:
     def start_game() -> None:
         return null
 
-    def get_status() -> GameStatus:
-        return GameStatus
-
-    def get_total_positions() -> int:
-        return int
+    def get_status(self):
+        game_status = {
+            'name': self.status.character.name,
+            'move_count': self.status.character.move_count,
+            'current_position': self.status.character.position,
+            'map': self.status.character.map.positions
+        }
+        return game_status
+    

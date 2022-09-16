@@ -82,14 +82,17 @@ class GameUI:
         valid_directions = [x.value for x in Direction]
         valid_options = [x.value for x in Direction]
         valid_options.append('q')
-        while True:
+        play = True
+        while play:
             response = self.prompt(
                 f">>>>>Where should our pantsless hero go! {valid_directions}-->(or q quit)",
                 lambda x: x in valid_options,
             )
             if response.lower() == 'q':
                 self.quit()
-            self.game.move(Direction(response))
+                play = False
+            else:
+                self.game.move(Direction(response))
 
     def help(self):
         print("\n\n")
@@ -99,10 +102,17 @@ class GameUI:
         print("\n\n")     
 
     def quit(self):
-        exit()   
+        self.status()
+    
+    def exit_game(self):
+        exit() 
+
+    def status(self):
+        status = self.game.get_status()
+        print(status)
 
 commands = {
-    'q': GameUI.quit,
+    'q': GameUI.exit_game,
     'c': GameUI.create_character,
     'p': GameUI.play
 }
