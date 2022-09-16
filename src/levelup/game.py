@@ -42,8 +42,8 @@ class GameUI:
         while True:
             self.help()
             command = self.prompt("Enter Command", lambda x: len(x) > 0)
+            command = command.lower()
             if command in commands.keys():
-                print(commands[command])
                 commands[command](self)
 
     def create_character(self):
@@ -78,6 +78,7 @@ class GameUI:
         self.game.create_character(character)
 
     def play(self):
+        print(f"Playing as {self.game.status.character.name}")
         valid_directions = [x.value for x in Direction]
         while True:
             response = self.prompt(
@@ -86,11 +87,14 @@ class GameUI:
             )
             self.game.move(Direction(response))
 
+    def underline(s):
+        cprint('{:s}'.format('\u0332'.join(s)))
+
     def help(self):
         print("\n\n")
-        print(f"Create Character: {self.game.status.character.name}") 
-        print("Play")
-        print("Quit")
+        print("\033[4mC\033[0mreate character")
+        print("\033[4mP\033[0mlay")
+        print("\033[4mQ\033[0muit")
         print("\n\n")        
 
 commands = {
