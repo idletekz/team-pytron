@@ -80,11 +80,15 @@ class GameUI:
     def play(self):
         print(f"Playing as {self.game.status.character.name}")
         valid_directions = [x.value for x in Direction]
+        valid_options = [x.value for x in Direction]
+        valid_options.append('q')
         while True:
             response = self.prompt(
-                f">>>>>Where should our pantsless hero go! {valid_directions}\n(or ctrl+c to quit)",
-                lambda x: x in valid_directions,
+                f">>>>>Where should our pantsless hero go! {valid_directions}-->(or q quit)",
+                lambda x: x in valid_options,
             )
+            if response.lower() == 'q':
+                self.quit()
             self.game.move(Direction(response))
 
     def help(self):
