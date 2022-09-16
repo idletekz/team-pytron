@@ -99,7 +99,7 @@ class GameUI:
         print("\n")
         print("\033[4mC\033[0mreate character")
         print("\033[4mP\033[0mlay")
-        print("\033[4mQ\033[0muit")
+        print("\033[4mE\033[0mxit")
         print("")     
 
     def quit(self):
@@ -130,7 +130,7 @@ class GameUI:
         input("    Press enter to continue...")
 
 commands = {
-    'q': GameUI.exit_game,
+    'e': GameUI.exit_game,
     'c': GameUI.create_character,
     'p': GameUI.play
 }
