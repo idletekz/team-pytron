@@ -26,5 +26,5 @@ def test_move(character):
     character.set_position(current_pos)
     character.set_map(map)
     character.move(direction)
-    want = (5,4)
+    want = (4,5)
     assert character.position == want

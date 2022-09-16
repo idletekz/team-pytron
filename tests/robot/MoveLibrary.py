@@ -13,19 +13,19 @@ class MoveLibrary:
 
     def move_in_direction(self, direction):
         self.controller = GameController()
-        self.controller.set_character_position((self.start_x, self.start_y))
+        self.controller.set_character_position(self.start_x, self.start_y)
         self.controller.move(Direction[direction])
 
     def character_xposition_should_be(self, expected):
         end_x = self.controller.status.character.position[0]
-        if end_x != expected:
+        if int(end_x) != int(expected):
             raise AssertionError(
                 "%s != %s" % (end_x, expected)
             )
 
     def character_yposition_should_be(self, expected):
         end_y = self.controller.status.character.position[1]
-        if end_y != expected:
+        if int(end_y) != int(expected):
             raise AssertionError(
                 "%s != %s" % (end_y, expected)
             )

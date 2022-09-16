@@ -1,5 +1,4 @@
 import numpy
-from prettytable import PrettyTable
 from levelup.direction import Direction
 
 class GameMap:
@@ -7,7 +6,7 @@ class GameMap:
         self.size = size
         self.positions = numpy.tile(" ", (size, size))
 
-    def update(self, current_pos=(5,5), new_pos=(5,6)):
+    def update(self, current_pos, new_pos):
         self.positions[current_pos] = "-"
         self.positions[new_pos] = "O"
 
@@ -16,17 +15,17 @@ class GameMap:
         y = current_pos[1]
         match direction:
             case Direction.NORTH:
-                tmp_position = (x, y - 1)
-            case Direction.SOUTH:
-                tmp_position = (x, y + 1)
-            case Direction.EAST:
-                tmp_position = (x + 1, y)
-            case Direction.WEST:
                 tmp_position = (x - 1, y)
+            case Direction.SOUTH:
+                tmp_position = (x + 1, y)
+            case Direction.EAST:
+                tmp_position = (x, y + 1)
+            case Direction.WEST:
+                tmp_position = (x, y - 1)
 
         if self.isValid(tmp_position):
             return tmp_position
         return current_pos
 
     def isValid(self, position):
-        return ((position[0] < self.size) and (position[1] < self.size))
+        return ((position[0] < self.size) and (position[0] > -1) and (position[1] < self.size) and (position[1] > -1))

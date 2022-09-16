@@ -26,6 +26,7 @@ def test_update(map):
 [((5,5), True), 
   ((5,10), False),
   ((11,11), False),
+  ((-1,9), False),
 ])
 def test_is_valid_position(input, want, map):
     got = map.isValid(input)
@@ -33,5 +34,5 @@ def test_is_valid_position(input, want, map):
     
 def test_calculate_position(map):
     want = (0,9)
-    got = map.calculate_position((0,9), Direction.SOUTH)
+    got = map.calculate_position((0,9), Direction.NORTH)
     assert got == want

@@ -1,3 +1,4 @@
+from prettytable import PrettyTable
 from levelup.direction import Direction
 from dataclasses import dataclass
 from levelup.character import Character
@@ -23,13 +24,16 @@ class GameController:
         self.status.character = Character(character_name)
 
     def move(self, direction: Direction) -> None:
-        print(f"Moved {direction.name}")
         self.status.character.move(direction)
-        print(self.status.character.map.positions)
+        pretty_map = PrettyTable(header=False, vrules=2, hrules=0)
+        for row in self.status.character.map.positions:
+            pretty_map.add_row(row)
+        print(pretty_map)
+        print(f"Moved {direction.name}")
 
-    def set_character_position(self, xycoordinates: tuple) -> None:
+    def set_character_position(self, x, y) -> None:
         print(f"Set character position state for testing")
-        self.status.character.position = xycoordinates
+        self.status.character.set_position((int(x),int(y)))
 
     def start_game() -> None:
         return null
