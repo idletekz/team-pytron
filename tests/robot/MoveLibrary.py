@@ -29,3 +29,10 @@ class MoveLibrary:
             raise AssertionError(
                 "%s != %s" % (end_y, expected)
             )
+
+    def character_move_count_should_be(self, expected):
+        end_move_count = self.controller.status.character.move_count
+        if int(end_move_count) != int(expected):
+            raise AssertionError(
+                "%s != %s" % (end_move_count, expected)
+            )
