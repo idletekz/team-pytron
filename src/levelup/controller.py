@@ -29,7 +29,7 @@ class GameController:
         for row in self.status.character.map.positions:
             pretty_map.add_row(row)
         print(pretty_map)
-        print(f"Moved {direction.name}")
+        print(f"Headed {direction.name}, unfortuantely no pants this way.")
 
     def set_character_position(self, x, y) -> None:
         print(f"Set character position state for testing")

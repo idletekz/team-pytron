@@ -14,6 +14,7 @@ class GameMap:
         x = current_pos[0]
         y = current_pos[1]
         match direction:
+            #Don't forget, X is each row, Y is each item in each row.
             case Direction.NORTH:
                 tmp_position = (x - 1, y)
             case Direction.SOUTH:
