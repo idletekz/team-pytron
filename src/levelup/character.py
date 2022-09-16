@@ -4,11 +4,15 @@ from levelup.game_map import GameMap
 class Character:
     name: str
 
-    def __init__(self, name, size=10, map=GameMap()):
+    def __init__(self, name, size=10, map=None):
         self.name = name
         self.position = (0,0)
-        self.map = map
-        self.move_count = 1
+        if map == None:
+            self.map = GameMap()
+            self.move_count = 1
+        else:
+            self.map = map
+            self.move_count = 1
 
     def set_position(self, position):
         self.position = position
